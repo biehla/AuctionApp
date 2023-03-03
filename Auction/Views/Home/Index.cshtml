@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Auction.Models.AuctionItem>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row justify-content-center gap-1">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-4 item">
+            <a class="cardz" asp-controller="AuctionItems" asp-action="Details" asp-route-id="@item.Id">
+                <div class="col-sm-12 col-md-3">
+                    <p>Image placeholder</p>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <h3>
+                        @Html.DisplayFor(model => item.Title)
+                    </h3>
+                    <br/>
+                    <p>
+                        @Html.DisplayFor(model => item.Description)
+                    </p>
+                </div>
+            </a>
+        </div>
+    }
+</div>
